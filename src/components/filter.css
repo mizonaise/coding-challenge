@@ -1,0 +1,32 @@
+.form-title {
+  margin-bottom: 38px;
+}
+
+.btn-clear {
+  width: 86px;
+  float: right;
+}
+
+@media screen and (max-width: 768px) and (min-width: 540px) {
+  .form-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .form-bottom input {
+    margin: 0;
+  }
+  .score-input {
+    flex: 0.3;
+  }
+  .order-input {
+    flex: 0.6;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .btn-clear {
+    width: 100%;
+  }
+}

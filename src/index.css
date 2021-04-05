@@ -1,11 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 
+:root {
+  --text: #c1d1e8;
+  --buttons: #5692e8;
+  --heading-text: #ffffff;
+  --card-background: #0e1a2b;
+  --input-background: #182c47;
+  --background-color: linear-gradient(180deg, #081221, #03080f);
+}
+
 body {
   margin: 0;
-  color: #c1d1e8;
   min-height: 100vh;
-  font-family: Mulish, Open Sans;
-  background: no-repeat linear-gradient(180deg, #081221, #03080f);
+  color: var(--text);
+  font-family: Mulish, sans-serif;
+  background: no-repeat var(--background-color);
 }
 
 * {
@@ -24,4 +33,48 @@ li {
 
 header {
   padding: 20px;
+}
+
+.videogame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-text);
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  outline: 0;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  color: var(--heading-text);
+  background-color: var(--buttons);
+  font-family: "Montserrat", sans-serif;
+}
+
+input {
+  outline: 0;
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 34px;
+  background-color: var(--input-background);
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--heading-text);
+  font-family: "Montserrat", sans-serif;
 }
