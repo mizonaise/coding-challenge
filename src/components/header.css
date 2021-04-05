@@ -1,0 +1,50 @@
+.nav-container {
+  display: flex;
+  padding: 0 50px;
+  position: relative;
+}
+
+.nav-item {
+  margin: 22px;
+  display: flex;
+  visibility: hidden;
+  text-transform: uppercase;
+}
+
+.background-text {
+  z-index: 1;
+  opacity: 0.15;
+  font-size: 44px;
+  position: absolute;
+  font-weight: bolder;
+  letter-spacing: 5px;
+}
+
+.nav-item:hover,
+.nav-item span {
+  visibility: visible;
+}
+
+.nav-item.active .background-text {
+  visibility: visible;
+}
+
+.nav-item span {
+  z-index: 2;
+  display: flex;
+  color: white;
+  font-size: 24px;
+  padding: 0 10px;
+  font-weight: 600;
+  margin: 24px 0 0 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    padding: 12px 0;
+    flex-direction: column;
+  }
+  .nav-item {
+    margin: 0;
+  }
+}
