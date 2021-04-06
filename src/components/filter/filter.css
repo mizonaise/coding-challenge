@@ -25,9 +25,13 @@
 }
 
 .arrow-icon {
-  font-size: 22px;
-  padding: 4px 8px;
+  padding: 7px 8px;
   background: #5692e8;
+}
+
+.arrow-icon svg {
+  display: flex;
+  font-size: 22px;
 }
 
 .selected {
