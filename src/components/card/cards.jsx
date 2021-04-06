@@ -11,6 +11,7 @@ function Cards() {
     isAsc,
     name,
     score,
+    error,
     postsPerPage,
     currentPage,
   } = useContext(GamesContext);
@@ -24,6 +25,13 @@ function Cards() {
   if (loading) {
     return <div className="card-conatiner">{loadingProfiles}</div>;
   }
+
+  if (error)
+    return (
+      <div className="card-conatiner">
+        <div className="error-container">Something went wrong</div>
+      </div>
+    );
 
   if (filters.isName) {
     if (isAsc) {

@@ -8,6 +8,7 @@ const GamesProvider = ({ children }) => {
   const [games, setGames] = useState([]);
   const [score, setScore] = useState("");
   const [isAsc, setIsAsc] = useState(true);
+  const [error, setErrors] = useState(false);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [selected, setSelected] = useState("Release Date");
@@ -25,6 +26,8 @@ const GamesProvider = ({ children }) => {
       const fetchdata = await response.json();
       setGames(fetchdata);
       setLoading(false);
+    } else {
+      setErrors(true);
     }
   };
 
@@ -49,6 +52,7 @@ const GamesProvider = ({ children }) => {
         setSelected,
         filters,
         setFilters,
+        error,
         currentPage,
         setCurrentPage,
         postsPerPage,
