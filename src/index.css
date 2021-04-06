@@ -33,7 +33,8 @@ li {
 
 input:focus,
 button:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: none;
 }
 
@@ -68,7 +69,8 @@ button {
   font-family: "Montserrat", sans-serif;
 }
 
-input {
+input,
+textarea {
   outline: 0;
   width: 100%;
   border: none;
