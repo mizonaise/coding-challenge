@@ -80,7 +80,7 @@
   font-family: "Mulish";
 }
 
-@media screen and (max-width: 1024px) and (min-width: 540px) {
+@media screen and (max-width: 1024px) and (min-width: 541px) {
   .form-bottom {
     display: flex;
     flex-direction: row;
