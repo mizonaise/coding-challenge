@@ -1,6 +1,5 @@
+import { Cards, Filter } from "../../components";
 import "./videoGames.css";
-import Cards from "../components/cards";
-import Filter from "../components/filter";
 
 function VideoGames() {
   return (

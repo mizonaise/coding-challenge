@@ -1,26 +1,19 @@
-import Contact from "./pages/contact";
-import Header from "./components/header";
+import { Header } from "./components";
 import * as Router from "react-router-dom";
-import VideoGames from "./pages/videoGames";
-
+import { Contact, VideoGames } from "./pages";
+import { GamesProvider } from "./context/context";
 
 function App() {
   return (
-    <Router.BrowserRouter>
-      <Header/>
+    <GamesProvider>
+      <Router.BrowserRouter>
+        <Header />
         <Router.Switch>
-          <Router.Route
-            exact
-            path={"/"}
-            component={VideoGames}
-          />
-          <Router.Route
-            exact
-            path={"/contact"}
-            component={Contact}
-          />
+          <Router.Route exact path={"/"} component={VideoGames} />
+          <Router.Route exact path={"/contact"} component={Contact} />
         </Router.Switch>
-    </Router.BrowserRouter>
+      </Router.BrowserRouter>
+    </GamesProvider>
   );
 }
 

@@ -39,7 +39,7 @@
   margin: 24px 0 0 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .nav-container {
     padding: 12px 0;
     flex-direction: column;

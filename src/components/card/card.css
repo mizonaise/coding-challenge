@@ -1,6 +1,6 @@
 .card {
-  margin: 10px;
   display: flex;
+  margin: 10px 0;
   position: relative;
   flex-direction: row;
   background-color: var(--card-background);
