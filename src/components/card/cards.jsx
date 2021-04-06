@@ -1,5 +1,5 @@
 import Card from "./card";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Pagination from "../pagination/pagination";
 import { GamesContext } from "../../context/context";
 
@@ -15,6 +15,10 @@ function Cards() {
     postsPerPage,
     currentPage,
   } = useContext(GamesContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   let loadingProfiles = [];
 
