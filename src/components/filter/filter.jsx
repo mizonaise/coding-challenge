@@ -20,15 +20,12 @@ function Filter() {
 
   const [showDrop, setShowDrop] = useState(false);
 
-  const handleChange = (e) => {
-    var { name, value } = e.target;
+  const onClickDropdown = (value) => {
     setSelected(value);
-
     setFilters({
-      isName: false,
-      isDate: false,
-      isScore: false,
-      [name]: !filters.name,
+      isName: (value === "Name"),
+      isDate: (value === "Release Date"),
+      isScore: (value === "Score"),
     });
     setShowDrop(!showDrop);
     setCurrentPage(1);
@@ -98,24 +95,24 @@ function Filter() {
                 <div
                   className={`dropdown ${showDrop ? "visible" : "not-visible"}`}
                 >
-                  <input
-                    name="isDate"
-                    value="Release Date"
-                    onClick={handleChange}
+                  <div
+                    onClick={() => onClickDropdown("Release Date")}
                     className={`${filters.isDate ? "not-visible" : "visible"}`}
-                  />
-                  <input
-                    value="Score"
-                    name="isScore"
-                    onClick={handleChange}
+                  >
+                    {"Release Date"}
+                  </div>
+                  <div
+                    onClick={() => onClickDropdown("Score")}
                     className={`${filters.isScore ? "not-visible" : "visible"}`}
-                  />
-                  <input
-                    value="Name"
-                    name="isName"
-                    onClick={handleChange}
+                  >
+                    {"Score"}
+                  </div>
+                  <div
+                    onClick={() => onClickDropdown("Name")}
                     className={`${filters.isName ? "not-visible" : "visible"}`}
-                  />
+                  >
+                    {"Name"}
+                  </div>
                 </div>
               </div>
             </div>

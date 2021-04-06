@@ -15,11 +15,11 @@ function Card(props) {
           <span className="date">
             <Skeleton borderRadius={20} width={50} height={50} />
           </span>
-          <p className="description">
+          <div className="description">
             <Skeleton borderRadius={20} width={100} height={20} />
             <Skeleton borderRadius={20} width={100} height={20} />
             <Skeleton borderRadius={20} width={50} height={20} />
-          </p>
+          </div>
         </div>
         <div className="card-rating">
           <div className="rating">

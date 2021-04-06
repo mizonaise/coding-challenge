@@ -15,9 +15,9 @@ const Pagination = ({ totalPosts }) => {
 
   return (
     <nav>
-      <dev className="pagination">
+      <div className="pagination">
         {pageNumbers.map((number) => (
-          <dev
+          <div
             key={number}
             onClick={() => setCurrentPage(number)}
             className={
@@ -25,9 +25,9 @@ const Pagination = ({ totalPosts }) => {
             }
           >
             {number}
-          </dev>
+          </div>
         ))}
-      </dev>
+      </div>
     </nav>
   );
 };
