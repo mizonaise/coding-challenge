@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://frontend-code.herokuapp.com/" target="_blank">
-  <h4>Web App: https://frontend-code.herokuapp.com/</h4>
+  <a href="https://cranky-babbage-128d01.netlify.app" target="_blank">
+  <h4>Web App: https://cranky-babbage-128d01.netlify.app</h4>
   </a>
 </p>
 
