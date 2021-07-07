@@ -1,7 +1,7 @@
 import "./pagination.css";
 import React from "react";
 import { useContext } from "react";
-import { GamesContext } from "../../context/context";
+import { GamesContext } from "../../state/Context";
 
 const Pagination = ({ totalPosts }) => {
   const pageNumbers = [];

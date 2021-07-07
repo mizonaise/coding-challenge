@@ -1,11 +1,11 @@
-import { Cards, Filter } from "../../components";
+import { LeftSide, RightSide } from "./components";
 import "./videoGames.css";
 
 function VideoGames() {
   return (
     <div className="container">
-      <Filter />
-      <Cards />
+      <LeftSide />
+      <RightSide />
     </div>
   );
 }

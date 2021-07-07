@@ -1,16 +1,22 @@
-import Card from "./card";
 import { useContext, useEffect } from "react";
-import Pagination from "../pagination/pagination";
-import { GamesContext } from "../../context/context";
+import { useDispatch, useSelector } from 'react-redux';
+import { initFilter } from "../../state/filtersAction";
+import { GamesContext } from "../../../../commons/state/Context";
+import Card from "../../../../commons/components/card/card";
+import Pagination from "../../../../commons/components/pagination/pagination";
 
-function Cards() {
+function RightSide() {
+
+  const dispatch = useDispatch();
+  const {
+    query,
+    score, 
+    order_asc,
+  } = useSelector((state) => state.filtersReducer);
   const {
     loading,
     games,
     filters,
-    isAsc,
-    name,
-    score,
     error,
     postsPerPage,
     currentPage,
@@ -19,6 +25,10 @@ function Cards() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
+
+  useEffect(() => {
+    dispatch(initFilter());
+  }, [dispatch])
 
   let loadingProfiles = [];
 
@@ -38,7 +48,7 @@ function Cards() {
     );
 
   if (filters.isName) {
-    if (isAsc) {
+    if (order_asc) {
       games.sort(function (a, b) {
         return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
       });
@@ -50,7 +60,7 @@ function Cards() {
   }
 
   if (filters.isScore) {
-    if (isAsc) {
+    if (order_asc) {
       games.sort(function (a, b) {
         return b.rating - a.rating;
       });
@@ -62,7 +72,7 @@ function Cards() {
   }
 
   if (filters.isDate) {
-    if (isAsc) {
+    if (order_asc) {
       games.sort(function (a, b) {
         return b.first_release_date - a.first_release_date;
       });
@@ -75,8 +85,8 @@ function Cards() {
 
   const filteredList = games
     .filter((game) => {
-      if (name === "") return game;
-      if (game.name.toLowerCase().includes(name.toString().toLowerCase())) {
+      if (query === "") return game;
+      if (game.name.toLowerCase().includes(query.toString().toLowerCase())) {
         return game;
       }
       return null;
@@ -103,4 +113,4 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default RightSide

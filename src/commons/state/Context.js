@@ -4,10 +4,7 @@ const GamesContext = createContext();
 
 const GamesProvider = ({ children }) => {
   const [postsPerPage] = useState(10);
-  const [name, setName] = useState("");
   const [games, setGames] = useState([]);
-  const [score, setScore] = useState("");
-  const [isAsc, setIsAsc] = useState(true);
   const [error, setErrors] = useState(false);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,12 +39,6 @@ const GamesProvider = ({ children }) => {
         setGames,
         loading,
         setLoading,
-        name,
-        setName,
-        score,
-        setScore,
-        isAsc,
-        setIsAsc,
         selected,
         setSelected,
         filters,

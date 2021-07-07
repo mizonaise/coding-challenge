@@ -1,16 +1,19 @@
-import "./filter.css";
+import "./leftSide.css";
 import { useState, useContext } from "react";
-import { GamesContext } from "../../context/context";
+import { useDispatch, useSelector } from 'react-redux';
+import { GamesContext } from "../../../../commons/state/Context";
 import { IoMdArrowUp, IoMdArrowDown, IoMdArrowDropdown } from "react-icons/io";
+import { filtersClear, loadOrderASC, loadQuery, loadScore } from "../../state/filtersAction";
 
-function Filter() {
-  const {
-    name,
-    setName,
+function LeftSide() {
+  const dispatch = useDispatch()
+  const { 
+    query, 
     score,
-    setScore,
-    isAsc,
-    setIsAsc,
+    order_asc,
+   } = useSelector((state) => state.filtersReducer)
+
+  const {
     filters,
     setFilters,
     selected,
@@ -33,15 +36,13 @@ function Filter() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setName("");
-    setScore("");
+    dispatch(filtersClear())
     setSelected("Release Date");
     setFilters({
       isDate: true,
       isScore: false,
       isName: false,
     });
-    setIsAsc(true);
   };
 
   return (
@@ -51,11 +52,11 @@ function Filter() {
         <label>{"Name (contains)"}</label>
         <input
           type="text"
-          value={name}
+          value={query}
           placeholder="Text string"
           onChange={(e) => {
             setCurrentPage(1);
-            setName(e.target.value);
+            dispatch(loadQuery(e.target.value))
           }}
         />
 
@@ -71,7 +72,7 @@ function Filter() {
                 placeholder="1 - 10"
                 onChange={(e) => {
                   setCurrentPage(1);
-                  setScore(e.target.value);
+                  dispatch(loadScore(e.target.value))
                 }}
               />
             </div>
@@ -79,8 +80,8 @@ function Filter() {
           <div className="order-input">
             <label>{"Order By"}</label>
             <div className="select-field">
-              <div className="arrow-icon" onClick={() => setIsAsc(!isAsc)}>
-                {isAsc ? <IoMdArrowUp /> : <IoMdArrowDown />}
+              <div className="arrow-icon" onClick={() => dispatch(loadOrderASC(!order_asc))}>
+                {order_asc ? <IoMdArrowUp /> : <IoMdArrowDown />}
               </div>
               <div className="select">
                 <div
@@ -126,4 +127,4 @@ function Filter() {
   );
 }
 
-export default Filter;
+export default LeftSide;
